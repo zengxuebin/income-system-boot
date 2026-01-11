@@ -1,0 +1,2 @@
+cn.life.income.framework.tracer.config.IncomeTracerAutoConfiguration
+cn.life.income.framework.tracer.config.IncomeMetricsAutoConfiguration

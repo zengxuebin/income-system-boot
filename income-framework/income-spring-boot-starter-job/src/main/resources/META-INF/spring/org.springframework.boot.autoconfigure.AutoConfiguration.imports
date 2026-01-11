@@ -1,0 +1,2 @@
+cn.life.income.framework.quartz.config.IncomeQuartzAutoConfiguration
+cn.life.income.framework.quartz.config.IncomeAsyncAutoConfiguration

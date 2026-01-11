@@ -1,0 +1,3 @@
+cn.life.income.framework.datasource.config.IncomeDataSourceAutoConfiguration
+cn.life.income.framework.mybatis.config.IncomeMybatisAutoConfiguration
+cn.life.income.framework.translate.config.IncomeTranslateAutoConfiguration

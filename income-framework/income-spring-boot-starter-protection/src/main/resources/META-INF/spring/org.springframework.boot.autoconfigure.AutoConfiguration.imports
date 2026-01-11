@@ -1,0 +1,4 @@
+cn.life.income.framework.idempotent.config.IncomeIdempotentConfiguration
+cn.life.income.framework.lock4j.config.IncomeLock4jConfiguration
+cn.life.income.framework.ratelimiter.config.IncomeRateLimiterConfiguration
+cn.life.income.framework.signature.config.IncomeApiSignatureAutoConfiguration

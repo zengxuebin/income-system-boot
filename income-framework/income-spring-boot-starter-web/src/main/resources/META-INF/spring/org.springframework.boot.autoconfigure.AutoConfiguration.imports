@@ -1,0 +1,6 @@
+cn.life.income.framework.apilog.config.IncomeApiLogAutoConfiguration
+cn.life.income.framework.jackson.config.IncomeJacksonAutoConfiguration
+cn.life.income.framework.swagger.config.IncomeSwaggerAutoConfiguration
+cn.life.income.framework.web.config.IncomeWebAutoConfiguration
+cn.life.income.framework.xss.config.IncomeXssAutoConfiguration
+cn.life.income.framework.encrypt.config.IncomeApiEncryptAutoConfiguration

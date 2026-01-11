@@ -1,0 +1,3 @@
+cn.life.income.framework.security.config.IncomeSecurityAutoConfiguration
+cn.life.income.framework.security.config.IncomeWebSecurityConfigurerAdapter
+cn.life.income.framework.operatelog.config.IncomeOperateLogConfiguration

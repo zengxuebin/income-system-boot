@@ -1,0 +1,2 @@
+cn.life.income.framework.redis.config.IncomeRedisAutoConfiguration
+cn.life.income.framework.redis.config.IncomeCacheAutoConfiguration

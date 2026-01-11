@@ -1,0 +1,3 @@
+cn.life.income.framework.mq.redis.config.IncomeRedisMQProducerAutoConfiguration
+cn.life.income.framework.mq.redis.config.IncomeRedisMQConsumerAutoConfiguration
+cn.life.income.framework.mq.rabbitmq.config.IncomeRabbitMQAutoConfiguration
