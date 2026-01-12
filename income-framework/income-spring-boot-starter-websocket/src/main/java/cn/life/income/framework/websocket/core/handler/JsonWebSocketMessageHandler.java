@@ -1,19 +1,15 @@
 package cn.life.income.framework.websocket.core.handler;
 
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.core.util.TypeUtil;
 import cn.life.income.framework.common.util.json.JsonUtils;
-import cn.life.income.framework.tenant.core.util.TenantUtils;
 import cn.life.income.framework.websocket.core.listener.WebSocketMessageListener;
 import cn.life.income.framework.websocket.core.message.JsonWebSocketMessage;
-import cn.life.income.framework.websocket.core.util.WebSocketFrameworkUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.socket.TextMessage;
 import org.springframework.web.socket.WebSocketHandler;
 import org.springframework.web.socket.WebSocketSession;
 import org.springframework.web.socket.handler.TextWebSocketHandler;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -68,13 +64,7 @@ public class JsonWebSocketMessageHandler extends TextWebSocketHandler {
             WebSocketMessageListener<Object> messageListener = listeners.get(jsonMessage.getType());
             if (messageListener == null) {
                 log.error("[handleTextMessage][session({}) message({}) 监听器为空]", session.getId(), message.getPayload());
-                return;
             }
-            // 2.3 处理消息
-            Type type = TypeUtil.getTypeArgument(messageListener.getClass(), 0);
-            Object messageObj = JsonUtils.parseObject(jsonMessage.getContent(), type);
-            Long tenantId = WebSocketFrameworkUtils.getTenantId(session);
-            TenantUtils.execute(tenantId, () -> messageListener.onMessage(session, messageObj));
         } catch (Throwable ex) {
             log.error("[handleTextMessage][session({}) message({}) 处理异常]", session.getId(), message.getPayload());
         }

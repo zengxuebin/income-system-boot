@@ -13,7 +13,6 @@ import org.springframework.context.annotation.Primary;
  *
  * @author zengxuebin
  */
-@EnableLogRecord(tenant = "") // 貌似用不上 tenant 这玩意给个空好啦
 @AutoConfiguration
 @Slf4j
 public class IncomeOperateLogConfiguration {

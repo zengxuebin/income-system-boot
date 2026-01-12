@@ -3,7 +3,6 @@ package cn.life.income.module.infra.dal.dataobject.logger;
 import cn.life.income.framework.common.enums.UserTypeEnum;
 import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
 import cn.life.income.module.infra.enums.logger.ApiErrorLogProcessStatusEnum;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
@@ -22,7 +21,6 @@ import java.time.LocalDateTime;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@KeySequence(value = "infra_api_error_log_seq")
 public class ApiErrorLogDO extends BaseDO {
 
     /**

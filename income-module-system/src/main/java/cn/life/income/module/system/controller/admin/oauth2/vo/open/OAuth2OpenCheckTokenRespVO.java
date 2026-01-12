@@ -31,13 +31,6 @@ public class OAuth2OpenCheckTokenRespVO {
     private Integer userType;
 
     /**
-     * 租户编号
-     * 表示当前用户所属的租户
-     */
-    @JsonProperty("tenant_id")
-    private Long tenantId;
-
-    /**
      * 客户端编号
      * 用于标识请求的客户端
      */

@@ -1,9 +1,8 @@
 package cn.life.income.module.system.dal.dataobject.dept;
 
 import cn.life.income.framework.common.enums.CommonStatusEnum;
-import cn.life.income.framework.tenant.core.db.TenantBaseDO;
+import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
 import cn.life.income.module.system.dal.dataobject.user.AdminUserDO;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
@@ -16,10 +15,9 @@ import lombok.EqualsAndHashCode;
  * @author zengxuebin
  */
 @TableName("system_dept")
-@KeySequence("system_dept_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class DeptDO extends TenantBaseDO {
+public class DeptDO extends BaseDO {
 
     public static final Long PARENT_ID_ROOT = 0L;
 

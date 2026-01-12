@@ -3,9 +3,7 @@ package cn.life.income.framework.mybatis.core.util;
 import cn.life.income.framework.common.util.object.ObjectUtils;
 import cn.life.income.framework.common.util.spring.SpringUtils;
 import cn.life.income.framework.mybatis.core.enums.DbTypeEnum;
-import com.baomidou.dynamic.datasource.DynamicRoutingDataSource;
 import com.baomidou.mybatisplus.annotation.DbType;
-import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -52,12 +50,7 @@ public class JdbcUtils {
      */
     public static DbType getDbType() {
         DataSource dataSource;
-        try {
-            DynamicRoutingDataSource dynamicRoutingDataSource = SpringUtils.getBean(DynamicRoutingDataSource.class);
-            dataSource = dynamicRoutingDataSource.determineDataSource();
-        } catch (NoSuchBeanDefinitionException e) {
-            dataSource = SpringUtils.getBean(DataSource.class);
-        }
+        dataSource = SpringUtils.getBean(DataSource.class);
         try (Connection conn = dataSource.getConnection()) {
             return DbTypeEnum.find(conn.getMetaData().getDatabaseProductName());
         } catch (SQLException e) {

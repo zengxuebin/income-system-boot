@@ -2,7 +2,6 @@ package cn.life.income.module.system.controller.admin.sms;
 
 import cn.life.income.framework.common.pojo.CommonResult;
 import cn.life.income.framework.common.util.servlet.ServletUtils;
-import cn.life.income.framework.tenant.core.aop.TenantIgnore;
 import cn.life.income.module.system.framework.sms.core.enums.SmsChannelEnum;
 import cn.life.income.module.system.service.sms.SmsSendService;
 import org.springframework.web.bind.annotation.*;
@@ -32,7 +31,6 @@ public class SmsCallbackController {
      */
     @PostMapping("/aliyun")
     @PermitAll
-    @TenantIgnore
     public CommonResult<Boolean> receiveAliyunSmsStatus(HttpServletRequest request) throws Throwable {
         String text = ServletUtils.getBody(request);
         smsSendService.receiveSmsStatus(SmsChannelEnum.ALIYUN.getCode(), text);
@@ -48,7 +46,6 @@ public class SmsCallbackController {
      */
     @PostMapping("/tencent")
     @PermitAll
-    @TenantIgnore
     public CommonResult<Boolean> receiveTencentSmsStatus(HttpServletRequest request) throws Throwable {
         String text = ServletUtils.getBody(request);
         smsSendService.receiveSmsStatus(SmsChannelEnum.TENCENT.getCode(), text);
@@ -64,7 +61,6 @@ public class SmsCallbackController {
      */
     @PostMapping("/huawei")
     @PermitAll
-    @TenantIgnore
     public CommonResult<Boolean> receiveHuaweiSmsStatus(@RequestBody String requestBody) throws Throwable {
         smsSendService.receiveSmsStatus(SmsChannelEnum.HUAWEI.getCode(), requestBody);
         return success(true);
@@ -79,7 +75,6 @@ public class SmsCallbackController {
      */
     @PostMapping("/qiniu")
     @PermitAll
-    @TenantIgnore
     public CommonResult<Boolean> receiveQiniuSmsStatus(@RequestBody String requestBody) throws Throwable {
         smsSendService.receiveSmsStatus(SmsChannelEnum.QINIU.getCode(), requestBody);
         return success(true);

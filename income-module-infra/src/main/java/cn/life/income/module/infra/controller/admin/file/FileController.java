@@ -6,7 +6,6 @@ import cn.hutool.core.util.URLUtil;
 import cn.life.income.framework.common.pojo.CommonResult;
 import cn.life.income.framework.common.pojo.PageResult;
 import cn.life.income.framework.common.util.object.BeanUtils;
-import cn.life.income.framework.tenant.core.aop.TenantIgnore;
 import cn.life.income.module.infra.controller.admin.file.vo.file.*;
 import cn.life.income.module.infra.dal.dataobject.file.FileDO;
 import cn.life.income.module.infra.service.file.FileService;
@@ -136,7 +135,6 @@ public class FileController {
      */
     @GetMapping("/{configId}/get/**")
     @PermitAll
-    @TenantIgnore
     public void getFileContent(HttpServletRequest request,
                                HttpServletResponse response,
                                @PathVariable("configId") Long configId) throws Exception {

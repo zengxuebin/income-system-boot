@@ -4,8 +4,6 @@ import cn.life.income.framework.common.biz.infra.logger.dto.ApiErrorLogCreateReq
 import cn.life.income.framework.common.pojo.PageResult;
 import cn.life.income.framework.common.util.object.BeanUtils;
 import cn.life.income.framework.common.util.string.StrUtils;
-import cn.life.income.framework.tenant.core.context.TenantContextHolder;
-import cn.life.income.framework.tenant.core.util.TenantUtils;
 import cn.life.income.module.infra.controller.admin.logger.vo.apierrorlog.ApiErrorLogPageReqVO;
 import cn.life.income.module.infra.dal.dataobject.logger.ApiErrorLogDO;
 import cn.life.income.module.infra.dal.mysql.logger.ApiErrorLogMapper;
@@ -40,17 +38,6 @@ public class ApiErrorLogServiceImpl implements ApiErrorLogService {
         ApiErrorLogDO apiErrorLog = BeanUtils.toBean(createDTO, ApiErrorLogDO.class)
                 .setProcessStatus(ApiErrorLogProcessStatusEnum.INIT.getStatus());
         apiErrorLog.setRequestParams(StrUtils.maxLength(apiErrorLog.getRequestParams(), REQUEST_PARAMS_MAX_LENGTH));
-        try {
-            if (TenantContextHolder.getTenantId() != null) {
-                apiErrorLogMapper.insert(apiErrorLog);
-            } else {
-                // 极端情况下，上下文中没有租户时，此时忽略租户上下文，避免插入失败！
-                TenantUtils.executeIgnore(() -> apiErrorLogMapper.insert(apiErrorLog));
-            }
-        } catch (Exception ex) {
-            // 兜底处理，目前只有 income-cloud 会发生：https://gitee.com/incomecode/income-cloud-mini/issues/IC1O0A
-            log.error("[createApiErrorLog][记录时({}) 发生异常]", createDTO, ex);
-        }
     }
 
     @Override

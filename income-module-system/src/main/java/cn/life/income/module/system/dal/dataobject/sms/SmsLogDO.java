@@ -2,10 +2,8 @@ package cn.life.income.module.system.dal.dataobject.sms;
 
 import cn.life.income.framework.common.enums.UserTypeEnum;
 import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
-import cn.life.income.framework.tenant.core.aop.TenantIgnore;
 import cn.life.income.module.system.enums.sms.SmsReceiveStatusEnum;
 import cn.life.income.module.system.enums.sms.SmsSendStatusEnum;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
@@ -21,14 +19,12 @@ import java.util.Map;
  * @since 2021-01-25
  */
 @TableName(value = "system_sms_log", autoResultMap = true)
-@KeySequence("system_sms_log_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@TenantIgnore
 public class SmsLogDO extends BaseDO {
 
     /**

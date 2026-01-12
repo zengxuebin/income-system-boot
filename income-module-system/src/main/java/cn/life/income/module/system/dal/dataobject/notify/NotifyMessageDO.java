@@ -2,8 +2,6 @@ package cn.life.income.module.system.dal.dataobject.notify;
 
 import cn.life.income.framework.common.enums.UserTypeEnum;
 import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
-import cn.life.income.module.system.dal.dataobject.mail.MailTemplateDO;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -11,7 +9,6 @@ import com.baomidou.mybatisplus.extension.handlers.JacksonTypeHandler;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Map;
 
 /**
@@ -20,7 +17,6 @@ import java.util.Map;
  * @author zengxuebin
  */
 @TableName(value = "system_notify_message", autoResultMap = true)
-@KeySequence("system_notify_message_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

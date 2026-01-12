@@ -1,9 +1,8 @@
 package cn.life.income.module.system.dal.dataobject.user;
 
 import cn.life.income.framework.common.enums.CommonStatusEnum;
-import cn.life.income.framework.tenant.core.db.TenantBaseDO;
+import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
 import cn.life.income.module.system.enums.common.SexEnum;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -20,13 +19,12 @@ import java.util.Set;
  * @author zengxuebin
  */
 @TableName(value = "system_users", autoResultMap = true) // 由于 SQL Server 的 system_user 是关键字，所以使用 system_users
-@KeySequence("system_users_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class AdminUserDO extends TenantBaseDO {
+public class AdminUserDO extends BaseDO {
 
     /**
      * 用户ID

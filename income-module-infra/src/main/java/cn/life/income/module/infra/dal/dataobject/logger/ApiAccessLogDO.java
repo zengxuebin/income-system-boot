@@ -4,7 +4,6 @@ import cn.life.income.framework.apilog.core.enums.OperateTypeEnum;
 import cn.life.income.framework.common.enums.UserTypeEnum;
 import cn.life.income.framework.common.pojo.CommonResult;
 import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
@@ -17,7 +16,6 @@ import java.time.LocalDateTime;
  * @author zengxuebin
  */
 @TableName("infra_api_access_log")
-@KeySequence(value = "infra_api_access_log_seq")
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

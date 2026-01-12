@@ -1,10 +1,9 @@
 package cn.life.income.module.system.dal.dataobject.permission;
 
 import cn.life.income.framework.common.enums.CommonStatusEnum;
-import cn.life.income.framework.tenant.core.db.TenantBaseDO;
+import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
 import cn.life.income.module.system.enums.permission.DataScopeEnum;
 import cn.life.income.module.system.enums.permission.RoleTypeEnum;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
@@ -20,10 +19,9 @@ import java.util.Set;
  * @author zengxuebin
  */
 @TableName(value = "system_role", autoResultMap = true)
-@KeySequence("system_role_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class RoleDO extends TenantBaseDO {
+public class RoleDO extends BaseDO {
 
     /**
      * 角色ID

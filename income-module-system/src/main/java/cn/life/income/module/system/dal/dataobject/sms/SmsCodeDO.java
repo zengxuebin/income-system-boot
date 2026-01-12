@@ -1,8 +1,6 @@
 package cn.life.income.module.system.dal.dataobject.sms;
 
 import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
-import cn.life.income.framework.tenant.core.aop.TenantIgnore;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
 
@@ -16,13 +14,11 @@ import java.time.LocalDateTime;
  * @author zengxuebin
  */
 @TableName("system_sms_code")
-@KeySequence("system_sms_code_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@TenantIgnore
 public class SmsCodeDO extends BaseDO {
 
     /**

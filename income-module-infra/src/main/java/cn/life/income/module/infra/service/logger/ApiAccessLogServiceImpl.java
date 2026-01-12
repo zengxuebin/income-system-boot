@@ -4,8 +4,6 @@ import cn.life.income.framework.common.biz.infra.logger.dto.ApiAccessLogCreateRe
 import cn.life.income.framework.common.pojo.PageResult;
 import cn.life.income.framework.common.util.object.BeanUtils;
 import cn.life.income.framework.common.util.string.StrUtils;
-import cn.life.income.framework.tenant.core.context.TenantContextHolder;
-import cn.life.income.framework.tenant.core.util.TenantUtils;
 import cn.life.income.module.infra.controller.admin.logger.vo.apiaccesslog.ApiAccessLogPageReqVO;
 import cn.life.income.module.infra.dal.dataobject.logger.ApiAccessLogDO;
 import cn.life.income.module.infra.dal.mysql.logger.ApiAccessLogMapper;
@@ -37,12 +35,6 @@ public class ApiAccessLogServiceImpl implements ApiAccessLogService {
         ApiAccessLogDO apiAccessLog = BeanUtils.toBean(createDTO, ApiAccessLogDO.class);
         apiAccessLog.setRequestParams(StrUtils.maxLength(apiAccessLog.getRequestParams(), REQUEST_PARAMS_MAX_LENGTH));
         apiAccessLog.setResultMsg(StrUtils.maxLength(apiAccessLog.getResultMsg(), RESULT_MSG_MAX_LENGTH));
-        if (TenantContextHolder.getTenantId() != null) {
-            apiAccessLogMapper.insert(apiAccessLog);
-        } else {
-            // 极端情况下，上下文中没有租户时，此时忽略租户上下文，避免插入失败！
-            TenantUtils.executeIgnore(() -> apiAccessLogMapper.insert(apiAccessLog));
-        }
     }
 
     @Override

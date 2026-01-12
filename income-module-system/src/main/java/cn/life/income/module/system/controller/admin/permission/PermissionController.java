@@ -1,18 +1,16 @@
 package cn.life.income.module.system.controller.admin.permission;
 
-import cn.hutool.core.collection.CollUtil;
 import cn.life.income.framework.common.pojo.CommonResult;
 import cn.life.income.module.system.controller.admin.permission.vo.permission.PermissionAssignRoleDataScopeReqVO;
 import cn.life.income.module.system.controller.admin.permission.vo.permission.PermissionAssignRoleMenuReqVO;
 import cn.life.income.module.system.controller.admin.permission.vo.permission.PermissionAssignUserRoleReqVO;
 import cn.life.income.module.system.service.permission.PermissionService;
-import cn.life.income.module.system.service.tenant.TenantService;
+import jakarta.annotation.Resource;
+import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import jakarta.annotation.Resource;
-import jakarta.validation.Valid;
 import java.util.Set;
 
 import static cn.life.income.framework.common.pojo.CommonResult.success;
@@ -26,8 +24,6 @@ public class PermissionController {
 
     @Resource
     private PermissionService permissionService;
-    @Resource
-    private TenantService tenantService;
 
     /**
      * 获得角色拥有的菜单编号
@@ -48,9 +44,6 @@ public class PermissionController {
     @PostMapping("/assign-role-menu")
     @PreAuthorize("@ss.hasPermission('system:permission:assign-role-menu')")
     public CommonResult<Boolean> assignRoleMenu(@Validated @RequestBody PermissionAssignRoleMenuReqVO reqVO) {
-        // 开启多租户的情况下，需要过滤掉未开通的菜单
-        tenantService.handleTenantMenu(menuIds -> reqVO.getMenuIds().removeIf(menuId -> !CollUtil.contains(menuIds, menuId)));
-
         // 执行菜单的分配
         permissionService.assignRoleMenu(reqVO.getRoleId(), reqVO.getMenuIds());
         return success(true);

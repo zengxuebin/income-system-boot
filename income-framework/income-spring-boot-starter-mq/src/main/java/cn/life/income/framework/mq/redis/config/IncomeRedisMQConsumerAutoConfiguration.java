@@ -1,9 +1,6 @@
 package cn.life.income.framework.mq.redis.config;
 
-import cn.hutool.core.map.MapUtil;
-import cn.hutool.core.util.StrUtil;
 import cn.hutool.system.SystemUtil;
-import cn.life.income.framework.common.enums.DocumentEnum;
 import cn.life.income.framework.mq.redis.core.RedisMQTemplate;
 import cn.life.income.framework.mq.redis.core.job.RedisPendingMessageResendJob;
 import cn.life.income.framework.mq.redis.core.job.RedisStreamMessageCleanupJob;
@@ -12,16 +9,13 @@ import cn.life.income.framework.mq.redis.core.stream.AbstractRedisStreamMessageL
 import cn.life.income.framework.redis.config.IncomeRedisAutoConfiguration;
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RedissonClient;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.data.redis.connection.RedisServerCommands;
 import org.springframework.data.redis.connection.stream.Consumer;
 import org.springframework.data.redis.connection.stream.ObjectRecord;
 import org.springframework.data.redis.connection.stream.ReadOffset;
 import org.springframework.data.redis.connection.stream.StreamOffset;
-import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.listener.ChannelTopic;
 import org.springframework.data.redis.listener.RedisMessageListenerContainer;
@@ -29,7 +23,6 @@ import org.springframework.data.redis.stream.StreamMessageListenerContainer;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.util.List;
-import java.util.Properties;
 
 /**
  * Redis 消息队列 Consumer 配置类
@@ -94,7 +87,6 @@ public class IncomeRedisMQConsumerAutoConfiguration {
     public StreamMessageListenerContainer<String, ObjectRecord<String, String>> redisStreamMessageListenerContainer(
             RedisMQTemplate redisMQTemplate, List<AbstractRedisStreamMessageListener<?>> listeners) {
         RedisTemplate<String, ?> redisTemplate = redisMQTemplate.getRedisTemplate();
-        checkRedisVersion(redisTemplate);
         // 第一步，创建 StreamMessageListenerContainer 容器
         // 创建 options 配置
         StreamMessageListenerContainer.StreamMessageListenerContainerOptions<String, ObjectRecord<String, String>> containerOptions =
@@ -142,21 +134,6 @@ public class IncomeRedisMQConsumerAutoConfiguration {
      */
     public static String buildConsumerName() {
         return String.format("%s@%d", SystemUtil.getHostInfo().getAddress(), SystemUtil.getCurrentPID());
-    }
-
-    /**
-     * 校验 Redis 版本号，是否满足最低的版本号要求！
-     */
-    public static void checkRedisVersion(RedisTemplate<String, ?> redisTemplate) {
-        // 获得 Redis 版本
-        Properties info = redisTemplate.execute((RedisCallback<Properties>) RedisServerCommands::info);
-        String version = MapUtil.getStr(info, "redis_version");
-        // 校验最低版本必须大于等于 5.0.0
-        int majorVersion = Integer.parseInt(StrUtil.subBefore(version, '.', false));
-        if (majorVersion < 5) {
-            throw new IllegalStateException(StrUtil.format("您当前的 Redis 版本为 {}，小于最低要求的 5.0.0 版本！" +
-                    "请参考 {} 文档进行安装。", version, DocumentEnum.REDIS_INSTALL.getUrl()));
-        }
     }
 
 }

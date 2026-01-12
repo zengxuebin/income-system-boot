@@ -75,7 +75,6 @@ public class IncomeCacheAutoConfiguration {
         RedisConnectionFactory connectionFactory = Objects.requireNonNull(redisTemplate.getConnectionFactory());
         RedisCacheWriter cacheWriter = RedisCacheWriter.nonLockingRedisCacheWriter(connectionFactory,
                 BatchStrategies.scan(incomeCacheProperties.getRedisScanBatchSize()));
-        // 创建 TenantRedisCacheManager 对象
         return new TimeoutRedisCacheManager(cacheWriter, redisCacheConfiguration);
     }
 

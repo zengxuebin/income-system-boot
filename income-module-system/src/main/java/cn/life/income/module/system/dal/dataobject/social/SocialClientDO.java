@@ -2,9 +2,8 @@ package cn.life.income.module.system.dal.dataobject.social;
 
 import cn.life.income.framework.common.enums.CommonStatusEnum;
 import cn.life.income.framework.common.enums.UserTypeEnum;
-import cn.life.income.framework.tenant.core.db.TenantBaseDO;
+import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
 import cn.life.income.module.system.enums.social.SocialTypeEnum;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.*;
@@ -18,13 +17,12 @@ import me.zhyd.oauth.config.AuthConfig;
  * @author zengxuebin
  */
 @TableName(value = "system_social_client", autoResultMap = true)
-@KeySequence("system_social_client_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class SocialClientDO extends TenantBaseDO {
+public class SocialClientDO extends BaseDO {
 
     /**
      * 编号，自增

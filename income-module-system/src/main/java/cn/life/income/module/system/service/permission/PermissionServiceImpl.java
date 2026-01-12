@@ -18,7 +18,6 @@ import cn.life.income.module.system.dal.redis.RedisKeyConstants;
 import cn.life.income.module.system.enums.permission.DataScopeEnum;
 import cn.life.income.module.system.service.dept.DeptService;
 import cn.life.income.module.system.service.user.AdminUserService;
-import com.baomidou.dynamic.datasource.annotation.DSTransactional;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Suppliers;
 import com.google.common.collect.Sets;
@@ -131,7 +130,6 @@ public class PermissionServiceImpl implements PermissionService {
     // ========== 角色-菜单的相关方法  ==========
 
     @Override
-    @DSTransactional // 多数据源，使用 @DSTransactional 保证本地事务，以及数据源的切换
     @Caching(evict = {
             @CacheEvict(value = RedisKeyConstants.MENU_ROLE_ID_LIST,
             allEntries = true),
@@ -203,7 +201,6 @@ public class PermissionServiceImpl implements PermissionService {
     // ========== 用户-角色的相关方法  ==========
 
     @Override
-    @DSTransactional // 多数据源，使用 @DSTransactional 保证本地事务，以及数据源的切换
     @CacheEvict(value = RedisKeyConstants.USER_ROLE_ID_LIST, key = "#userId")
     public void assignUserRole(Long userId, Set<Long> roleIds) {
         // 获得角色拥有角色编号

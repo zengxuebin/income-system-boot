@@ -4,7 +4,6 @@ import cn.life.income.framework.common.enums.UserTypeEnum;
 import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
 import cn.life.income.module.system.enums.logger.LoginLogTypeEnum;
 import cn.life.income.module.system.enums.logger.LoginResultEnum;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -18,7 +17,6 @@ import lombok.ToString;
  * @author zengxuebin
  */
 @TableName("system_login_log")
-@KeySequence("system_login_log_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)

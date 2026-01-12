@@ -3,7 +3,6 @@ package cn.life.income.module.infra.dal.dataobject.file;
 import cn.hutool.core.util.StrUtil;
 import cn.life.income.framework.common.util.json.JsonUtils;
 import cn.life.income.framework.mybatis.core.dataobject.BaseDO;
-import cn.life.income.framework.tenant.core.aop.TenantIgnore;
 import cn.life.income.module.infra.framework.file.core.client.FileClientConfig;
 import cn.life.income.module.infra.framework.file.core.client.db.DBFileClientConfig;
 import cn.life.income.module.infra.framework.file.core.client.ftp.FtpFileClientConfig;
@@ -11,7 +10,6 @@ import cn.life.income.module.infra.framework.file.core.client.local.LocalFileCli
 import cn.life.income.module.infra.framework.file.core.client.s3.S3FileClientConfig;
 import cn.life.income.module.infra.framework.file.core.client.sftp.SftpFileClientConfig;
 import cn.life.income.module.infra.framework.file.core.enums.FileStorageEnum;
-import com.baomidou.mybatisplus.annotation.KeySequence;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.handlers.AbstractJsonTypeHandler;
@@ -26,14 +24,12 @@ import java.lang.reflect.Field;
  * @author zengxuebin
  */
 @TableName(value = "infra_file_config", autoResultMap = true)
-@KeySequence("infra_file_config_seq") // 用于 Oracle、PostgreSQL、Kingbase、DB2、H2 数据库的主键自增。如果是 MySQL 等数据库，可不写。
 @Data
 @EqualsAndHashCode(callSuper = true)
 @ToString(callSuper = true)
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@TenantIgnore
 public class FileConfigDO extends BaseDO {
 
     /**
