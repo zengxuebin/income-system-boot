@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Primary;
  *
  * @author zengxuebin
  */
+@EnableLogRecord(tenant = "")
 @AutoConfiguration
 @Slf4j
 public class IncomeOperateLogConfiguration {
