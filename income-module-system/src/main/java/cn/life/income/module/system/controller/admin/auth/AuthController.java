@@ -31,6 +31,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
+import static cn.life.income.framework.common.exception.enums.GlobalErrorCodeConstants.FORBIDDEN;
 import static cn.life.income.framework.common.pojo.CommonResult.success;
 import static cn.life.income.framework.common.util.collection.CollectionUtils.convertSet;
 import static cn.life.income.framework.security.core.util.SecurityFrameworkUtils.getLoginUserId;
@@ -122,7 +123,9 @@ public class AuthController {
     @PostMapping("/register")
     @PermitAll
     public CommonResult<AuthLoginRespVO> register(@RequestBody @Valid AuthRegisterReqVO registerReqVO) {
-        return success(authService.register(registerReqVO));
+        /// 临时关闭
+//        return success(authService.register(registerReqVO));
+        return CommonResult.error(FORBIDDEN);
     }
 
     // ========== 短信登录相关 ==========
@@ -142,8 +145,10 @@ public class AuthController {
     @PostMapping("/send-sms-code")
     @PermitAll
     public CommonResult<Boolean> sendLoginSmsCode(@RequestBody @Valid AuthSmsSendReqVO reqVO) {
-        authService.sendSmsCode(reqVO);
-        return success(true);
+        /// 临时关闭
+//        authService.sendSmsCode(reqVO);
+//        return success(true);
+        return CommonResult.error(FORBIDDEN);
     }
 
     /**
@@ -152,8 +157,10 @@ public class AuthController {
     @PostMapping("/reset-password")
     @PermitAll
     public CommonResult<Boolean> resetPassword(@RequestBody @Valid AuthResetPasswordReqVO reqVO) {
-        authService.resetPassword(reqVO);
-        return success(true);
+        /// 临时关闭
+//        authService.resetPassword(reqVO);
+//        return success(true);
+        return CommonResult.error(FORBIDDEN);
     }
 
     // ========== 社交登录相关 ==========
