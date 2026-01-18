@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.life.income</groupId>
+        <artifactId>income</artifactId>
+        <version>${revision}</version>
+    </parent>
+
+    <artifactId>income-module-core</artifactId>
+    <packaging>jar</packaging>
+
+    <name>${project.artifactId}</name>
+
+    <description>
+        核心模块
+    </description>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>cn.life.income</groupId>
+            <artifactId>income-module-system</artifactId>
+            <version>${revision}</version>
+        </dependency>
+
+        <!-- Web 相关 -->
+        <dependency>
+            <groupId>cn.life.income</groupId>
+            <artifactId>income-spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.life.income</groupId>
+            <artifactId>income-spring-boot-starter-security</artifactId>
+        </dependency>
+
+        <!-- DB 相关 -->
+        <dependency>
+            <groupId>cn.life.income</groupId>
+            <artifactId>income-spring-boot-starter-mybatis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>cn.life.income</groupId>
+            <artifactId>income-spring-boot-starter-redis</artifactId>
+        </dependency>
+
+        <!-- Job 定时任务相关 -->
+        <dependency>
+            <groupId>cn.life.income</groupId>
+            <artifactId>income-spring-boot-starter-job</artifactId>
+        </dependency>
+    </dependencies>
+</project>

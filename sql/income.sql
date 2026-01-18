@@ -280,8 +280,8 @@ CREATE TABLE `infra_file_config`  (
 -- Records of infra_file_config
 -- ----------------------------
 BEGIN;
-INSERT INTO `infra_file_config` (`id`, `name`, `storage`, `remark`, `master`, `config`, `creator`, `create_time`, `updater`, `update_time`, `deleted`) VALUES (4, '数据库（示例）', 1, '我是数据库', b'0', '{\"@class\":\"cn.life.income.module.infra.framework.file.core.client.db.DBFileClientConfig\",\"domain\":\"http://127.0.0.1:48080\"}', '1', '2022-03-15 23:56:24', '1', '2025-11-24 20:57:14', b'0');
-INSERT INTO `infra_file_config` (`id`, `name`, `storage`, `remark`, `master`, `config`, `creator`, `create_time`, `updater`, `update_time`, `deleted`) VALUES (29, '本地存储（示例）', 10, 'mac/linux 使用 /，windows 使用 \\', b'0', '{\"@class\":\"cn.life.income.module.infra.framework.file.core.client.local.LocalFileClientConfig\",\"basePath\":\"/Users/yunai/tmp/file\",\"domain\":\"http://127.0.0.1:48080\"}', '1', '2025-05-02 11:25:45', '1', '2025-11-24 20:57:14', b'0');
+INSERT INTO `infra_file_config` (`id`, `name`, `storage`, `remark`, `master`, `config`, `creator`, `create_time`, `updater`, `update_time`, `deleted`) VALUES (4, '数据库（示例）', 1, '我是数据库', b'0', '{\"@class\":\"cn.life.income.module.infra.framework.file.core.client.db.DBFileClientConfig\",\"domain\":\"http://127.0.0.1:8080\"}', '1', '2022-03-15 23:56:24', '1', '2025-11-24 20:57:14', b'0');
+INSERT INTO `infra_file_config` (`id`, `name`, `storage`, `remark`, `master`, `config`, `creator`, `create_time`, `updater`, `update_time`, `deleted`) VALUES (29, '本地存储（示例）', 10, 'mac/linux 使用 /，windows 使用 \\', b'0', '{\"@class\":\"cn.life.income.module.infra.framework.file.core.client.local.LocalFileClientConfig\",\"basePath\":\"/Users/yunai/tmp/file\",\"domain\":\"http://127.0.0.1:8080\"}', '1', '2025-05-02 11:25:45', '1', '2025-11-24 20:57:14', b'0');
 COMMIT;
 
 -- ----------------------------
@@ -3858,7 +3858,7 @@ CREATE TABLE `income_demo01_contact`  (
 -- Records of income_demo01_contact
 -- ----------------------------
 BEGIN;
-INSERT INTO `income_demo01_contact` (`id`, `name`, `sex`, `birthday`, `description`, `avatar`, `creator`, `create_time`, `updater`, `update_time`, `deleted`) VALUES (1, '土豆', 2, '2023-11-07 00:00:00', '<p>天蚕土豆！呀</p>', 'http://127.0.0.1:48080/admin-api/infra/file/4/get/46f8fa1a37db3f3960d8910ff2fe3962ab3b2db87cf2f8ccb4dc8145b8bdf237.jpeg', '1', '2023-11-15 23:34:30', '1', '2023-11-15 23:47:39', b'0');
+INSERT INTO `income_demo01_contact` (`id`, `name`, `sex`, `birthday`, `description`, `avatar`, `creator`, `create_time`, `updater`, `update_time`, `deleted`) VALUES (1, '土豆', 2, '2023-11-07 00:00:00', '<p>天蚕土豆！呀</p>', 'http://127.0.0.1:8080/admin-api/infra/file/4/get/46f8fa1a37db3f3960d8910ff2fe3962ab3b2db87cf2f8ccb4dc8145b8bdf237.jpeg', '1', '2023-11-15 23:34:30', '1', '2023-11-15 23:47:39', b'0');
 COMMIT;
 
 -- ----------------------------

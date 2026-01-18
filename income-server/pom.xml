@@ -18,7 +18,6 @@
         从而实现提供 RESTful API 给 income-ui-admin、income-ui-user 等前端项目。
         本质上来说，它就是个空壳（容器）！
     </description>
-    <url>https://github.com/YunaiV/ruoyi-vue-pro</url>
 
     <dependencies>
         <dependency>
@@ -32,88 +31,12 @@
             <version>${revision}</version>
         </dependency>
 
-        <!-- 会员中心。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-member</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-
-        <!-- 数据报表。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-report</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-        <!-- 工作流。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-bpm</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-        <!-- 支付服务。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-pay</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-
-        <!-- 微信公众号模块。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-mp</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-
-        <!-- 商城相关模块。默认注释，保证编译速度-->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-product</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-promotion</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-trade</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-statistics</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-
-        <!-- CRM 相关模块。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-crm</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-
-        <!-- ERP 相关模块。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-erp</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-
-        <!-- AI 大模型相关模块。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-ai</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
-
-        <!-- IoT 物联网相关模块。默认注释，保证编译速度 -->
-<!--        <dependency>-->
-<!--            <groupId>cn.life.income</groupId>-->
-<!--            <artifactId>income-module-iot-biz</artifactId>-->
-<!--            <version>${revision}</version>-->
-<!--        </dependency>-->
+        <!-- 业务核心模块 -->
+        <dependency>
+            <groupId>cn.life.income</groupId>
+            <artifactId>income-module-core</artifactId>
+            <version>${revision}</version>
+        </dependency>
 
         <!-- spring boot 配置所需依赖 -->
         <dependency>
