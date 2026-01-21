@@ -260,9 +260,7 @@ CREATE TABLE `infra_file_config`  (
 -- ----------------------------
 -- Records of infra_file_config
 -- ----------------------------
-INSERT INTO `infra_file_config` VALUES (4, '数据库（示例）', 1, '我是数据库', b'0', '{\"@class\":\"cn.life.income.module.infra.framework.file.core.client.db.DBFileClientConfig\",\"domain\":\"http://127.0.0.1:8080\"}', '1', '2022-03-15 23:56:24', '1', '2025-11-24 20:57:14', b'0');
-INSERT INTO `infra_file_config` VALUES (29, '本地存储（示例）', 10, 'mac/linux 使用 /，windows 使用 \\', b'0', '{\"@class\":\"cn.life.income.module.infra.framework.file.core.client.local.LocalFileClientConfig\",\"basePath\":\"/Users/yunai/tmp/file\",\"domain\":\"http://127.0.0.1:8080\"}', '1', '2025-05-02 11:25:45', '1', '2025-11-24 20:57:14', b'0');
-
+INSERT INTO `infra_file_config` VALUES (4, '数据库', 1, '我是数据库', '1', '{\"@class\":\"cn.life.income.module.infra.framework.file.core.client.db.DBFileClientConfig\",\"domain\":\"http://127.0.0.1:8080\"}', '1', '2022-03-15 23:56:24', '1', '2025-11-24 20:57:14', b'0');
 -- ----------------------------
 -- Table structure for infra_file_content
 -- ----------------------------
@@ -1023,6 +1021,8 @@ CREATE TABLE `system_oauth2_client`  (
   `deleted` bit(1) NOT NULL DEFAULT b'0' COMMENT '是否删除',
   PRIMARY KEY (`id`) USING BTREE
 ) ENGINE = InnoDB AUTO_INCREMENT = 43 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci COMMENT = 'OAuth2 客户端表' ROW_FORMAT = Dynamic;
+
+INSERT INTO `system_oauth2_client` (`id`, `client_id`, `secret`, `name`, `logo`, `description`, `status`, `access_token_validity_seconds`, `refresh_token_validity_seconds`, `redirect_uris`, `authorized_grant_types`, `scopes`, `auto_approve_scopes`, `authorities`, `resource_ids`, `additional_information`, `creator`, `create_time`, `updater`, `update_time`, `deleted`) VALUES (1, 'default', 'income', 'Income', '', '我是描述', 0, 1800, 2592000, '[\"https://www.xuebin.cloud\"]', '[\"password\",\"authorization_code\",\"implicit\",\"refresh_token\",\"client_credentials\"]', '[\"user.read\",\"user.write\"]', '[]', '[\"user.read\",\"user.write\"]', '[]', '{}', '1', NOW(), '1', NOW(), b'0');
 
 -- ----------------------------
 -- Records of system_oauth2_client
